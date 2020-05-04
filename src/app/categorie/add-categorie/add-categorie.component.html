@@ -1,0 +1,56 @@
+
+<div class="form-group  row">
+  <label class="col-sm-2 col-form-label">Parent</label>
+
+  <div class="col-sm-6">
+  <select class="form-control m-b" [(ngModel)]="categorie.parent" >
+    <option></option>
+    <option [ngValue]="cat" *ngFor="let cat of categories">{{cat.nom}}</option>
+  </select>
+  </div>
+
+</div>
+
+<div class="form-group  row">
+  <label class="col-sm-2 col-form-label">Nom</label>
+
+  <div class="col-sm-6">
+    <input type="text" class="form-control" [(ngModel)]="categorie.nom" #nom="ngModel" required>
+  </div>
+  <div class="col-sm-4">
+    <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="text-danger">
+      <div *ngIf="nom.errors['required']">
+        Nom catégorie obligatoire
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="form-group  row">
+  <label class="col-sm-2 col-form-label">Image</label>
+
+  <div class="col-sm-6 custom-file">
+    <input id="logo" type="file" class="custom-file-input" (change)="selectFile($event)"   >
+    <label for="logo" class="custom-file-label">{{fileName}}</label>
+  </div>
+
+
+</div>
+
+
+
+
+<hr>
+<div class="row">
+  <div class="col-sm-8"></div>
+  <div class="col-sm-4">
+    <button *ngIf="visible" class="btn btn-primary btn-block" (click)="upload()"
+    [disabled]="nom.invalid||!selectedFiles">Ajouter</button>
+
+    <button *ngIf="!visible" class="btn btn-warning btn-block" (click)="upload()"
+            [disabled]="nom.invalid">Modifier</button>
+
+  </div>
+</div>
+

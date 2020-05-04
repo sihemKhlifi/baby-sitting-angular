@@ -1,0 +1,44 @@
+<p-table  [value]="categories">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+
+      <th width="12%">
+       Image
+      </th>
+    <th>
+      Nom
+    </th>
+
+      <th>
+       Parent
+      </th>
+
+      <th width="15%">
+      Opérations
+      </th>
+
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-cat>
+    <tr>
+      <td>
+        <img src="{{cat.image}}" class="rounded-circle" width="100" height="100">
+      </td>
+      <td >
+        {{cat.nom}}
+      </td>
+      <td >
+        {{cat.parent?.nom}}
+      </td>
+
+      <td>
+        <button pButton icon="pi pi-trash" (click)="supprimer(cat)"
+        class="ui-button-danger"></button>
+
+
+        <button style="margin-left:10px " pButton icon="pi pi-pencil" (click)="editer(cat)"
+                class="ui-button-warning"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

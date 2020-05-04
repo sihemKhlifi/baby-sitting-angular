@@ -1,0 +1,22 @@
+<div class="middle-box text-center loginscreen animated fadeInDown">
+  <div>
+
+    <h3>Authentification</h3>
+
+    <p>Merci d'introduire votre nom d'utilsiateur et mot de passe</p>
+    <form class="m-t" #f="ngForm" (ngSubmit)="f.valid && authenticate()" >
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email" required name="email" [(ngModel)]="user.email">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" required name="password" [(ngModel)]="user.password">
+      </div>
+      <button type="submit" class="btn btn-primary block full-width m-b" [disabled]="f.invalid">Login</button>
+
+
+      <p class="text-muted text-center"><small>Créer un compte?</small></p>
+      <a class="btn btn-sm btn-white btn-block" href="/register">Inscription</a>
+    </form>
+
+  </div>
+</div>
